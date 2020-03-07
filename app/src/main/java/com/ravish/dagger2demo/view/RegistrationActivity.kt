@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.ravish.dagger2demo.MyApplication
 import com.ravish.dagger2demo.R
 import com.ravish.dagger2demo.registration.RegistrationComponent
@@ -18,6 +19,9 @@ class RegistrationActivity : AppCompatActivity() {
     @Inject
     lateinit var registrationViewModel: RegistrationViewModel
 
+    @Inject
+    lateinit var firebaseAnalytics: FirebaseAnalytics
+
     lateinit var registrationComponent: RegistrationComponent
     override fun onCreate(savedInstanceState: Bundle?) {
        registrationComponent = (application as MyApplication).applicationComponent.registrationComponent().create()
@@ -25,6 +29,12 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
         regBtn.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "111")
+            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, usernameEdit.text.toString())
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Image")
+            firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
+
             registrationViewModel.registerUser(usernameEdit.text.toString(), passwordEdit.text.toString())
         }
 

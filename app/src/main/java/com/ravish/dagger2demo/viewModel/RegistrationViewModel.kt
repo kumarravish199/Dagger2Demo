@@ -5,6 +5,7 @@ import com.ravish.dagger2demo.MyApplication
 import com.ravish.dagger2demo.login.LoginManager
 import com.ravish.dagger2demo.scope.ActivityScope
 import com.ravish.dagger2demo.user.Storage
+import kotlinx.coroutines.CoroutineScope
 import javax.inject.Inject
 
 @ActivityScope
@@ -33,5 +34,6 @@ class RegistrationViewModel @Inject constructor(){
     private fun validateUserName(username: String):Boolean {
         return storage.isUserRegistered(username)
     }
+
 
 }

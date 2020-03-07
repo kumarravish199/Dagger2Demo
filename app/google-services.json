@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "14260482547",
+    "firebase_url": "https://dagger2demo-4fe3f.firebaseio.com",
+    "project_id": "dagger2demo-4fe3f",
+    "storage_bucket": "dagger2demo-4fe3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14260482547:android:212b6412d005bc6e4ea286",
+        "android_client_info": {
+          "package_name": "com.ravish.dagger2demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14260482547-7k9ssadhrh5q9ogc8gjiimsbespqepaa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQhEDDDfT2ZemOiNnYNidX0Juf8eX7i48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14260482547-7k9ssadhrh5q9ogc8gjiimsbespqepaa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

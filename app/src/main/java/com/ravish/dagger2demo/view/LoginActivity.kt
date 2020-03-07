@@ -1,7 +1,9 @@
 package com.ravish.dagger2demo.view
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -22,6 +24,8 @@ class LoginActivity : AppCompatActivity() {
         loginComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+
 
         usernameEdit.setText(loginViewModel.loginManager.loggerUser)
         loginViewModel.navigateUserLiveData.observe(this, Observer {
@@ -56,8 +60,15 @@ class LoginActivity : AppCompatActivity() {
         }
 
         newUserTextView.setOnClickListener {
-            startActivity(Intent(this, RegistrationActivity::class.java))
+            val i = Intent(this, RegistrationActivity::class.java)
+            i.flags = Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT
+            startActivity(i)
         }
+    }
+
+    override fun onMultiWindowModeChanged(isInMultiWindowMode: Boolean, newConfig: Configuration?) {
+        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig)
+        Log.e("Tag", "Is Multiwindow $isInMultiWindowMode")
     }
 
     private fun validateUser() {

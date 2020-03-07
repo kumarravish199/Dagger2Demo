@@ -1,6 +1,7 @@
 package com.ravish.dagger2demo.di
 
 import android.content.Context
+import com.ravish.dagger2demo.fcm.FireBaseModule
 import com.ravish.dagger2demo.login.LoginComponent
 import com.ravish.dagger2demo.registration.RegistrationComponent
 import com.ravish.dagger2demo.splash.SplashComponent
@@ -13,7 +14,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [StorageModule::class, AppSubComponent::class])
+@Component(modules = [StorageModule::class, AppSubComponent::class, FireBaseModule::class])
  interface ApplicationComponent {
 
  @Component.Factory
